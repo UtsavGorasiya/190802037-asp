@@ -17,10 +17,15 @@ public partial class Login : System.Web.UI.Page
         //ProviderName="<%$ ConnectionStrings:DatabaseConnectionString1.ProviderName %>" 
         //SelectCommand="SELECT [id], [name], [email], [password] FROM [users]" 
         //UpdateCommand="UPDATE [users] SET [name] = @name, [email] = @email, [password] = @password WHERE [id] = @id">
+    
     }
 
     protected void Button1_Click(object sender, EventArgs e)
     {
+        //if (Session["email"]!=null)
+        //{
+        //    Response.Redirect("~/AdminMasterPage.aspx");
+        //}
         try
         {
             SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM [users] WHERE [email] = @email AND [password] = @password", con);
@@ -31,7 +36,7 @@ public partial class Login : System.Web.UI.Page
             if (s == 1)
             {
                 Session["email"]=TextBox1.Text;
-                Response.Redirect("~/Dashboard.aspx");
+                Response.Redirect("~/Home.aspx");
                 TextBox1.Text = string.Empty;
                 TextBox2.Text = string.Empty;
             }
@@ -40,6 +45,7 @@ public partial class Login : System.Web.UI.Page
                 TextBox1.Text = string.Empty;
                 TextBox2.Text = string.Empty;
                 Literal1.Text = "Email And Password Are Invalid...!";
+              
             }
             con.Close();
         }

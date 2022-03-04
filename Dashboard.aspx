@@ -2,6 +2,7 @@
     CodeFile="Dashboard.aspx.cs" Inherits="_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<section id="main-content">
     <section class="wrapper">
 		<!-- //market-->
 		<div class="market-updates">
